@@ -15,14 +15,16 @@
   }
 
   function countDishes(string){
-      if (string == "")
-        return "Please enter data first";
-      var dishArray = string.split(',');
-      return (dishArray.length > 3) ?  "Too Much!" :  "Enjoy!";
+    if (string == "") return "Please enter data first";
+    var dishArray = string.split(',');
+    dishArray = dishArray.filter(function(str) {
+                  return /\S/.test(str);
+                });     // Filter Empty element in Array
+    return (dishArray.length > 3) ?  "Too Much!" :  "Enjoy!";
   }
 
   function getTextColorClass(string){
-      return string == "" ? "text-danger" : "text-primary"
+    return string == "" ? "text-danger" : "text-primary"
   }
 
 })();
