@@ -7,9 +7,10 @@
   function LunchCheckerController($scope){
     $scope.dishes = "";
     $scope.message = "";
-    $scope.customStyle = {};
+    $scope.textColorClass = "";
     $scope.showMessage = function(){
       $scope.message = countDishes($scope.dishes);
+      $scope.textColorClass = getTextColorClass($scope.dishes);
     };
   }
 
@@ -18,6 +19,10 @@
         return "Please enter data first";
       var dishArray = string.split(',');
       return (dishArray.length > 3) ?  "Too Much!" :  "Enjoy!";
+  }
+
+  function getTextColorClass(string){
+      return string == "" ? "text-danger" : "text-primary"
   }
 
 })();
